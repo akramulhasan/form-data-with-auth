@@ -58,15 +58,15 @@ if(isset($_POST['submit'])){
   <form action="" method="POST" class="row g-3">
   <div class="col-md-4">
     <label for="inputText" class="form-label">Name</label>
-    <input type="text" name="name" class="form-control" id="inputText">
+    <input required type="text" name="name" class="form-control" id="inputText">
   </div>
   <div class="col-md-4">
     <label for="inputEmail" class="form-label">Email</label>
-    <input type="email" name="email" class="form-control" id="inputEmail">
+    <input required type="email" name="email" class="form-control" id="inputEmail">
   </div>
   <div class="col-md-4">
     <label for="inputDest" class="form-label">Destination</label>
-    <input type="text" name="dest" class="form-control" id="inputDest">
+    <input required type="text" name="dest" class="form-control" id="inputDest">
   </div>
   <!-- <div class="col-12">
     <label for="inputAddress" class="form-label">Address</label>
