@@ -1,12 +1,7 @@
 <?php
-
-
-
-
 //add data to DB
-
-
 if(isset($_POST['submit'])){
+
   $name = $_POST['name'];
   $email = $_POST['email'];
   $dest = $_POST['dest'];
@@ -14,17 +9,20 @@ if(isset($_POST['submit'])){
 
 
 
-  //DB connection
+  //DB Server Information
   $servername = "localhost";
   $username = "root";
   $password = "";
   $db = "ak48";
 
+  //DB Connection
   $conn = mysqli_connect($servername, $username, $password, $db);
 
   if(!$conn){
     die("Sorry Database is not connected".mysqli_connect_error());
   }else{
+
+    //insert submitted data into DB table
     $sql = "INSERT INTO `user` (`ID`, `Name`, `Email`, `Dest`) VALUES (NULL, '$name', '$email', '$dest')";
 
     $result = mysqli_query($conn, $sql);
@@ -34,8 +32,6 @@ if(isset($_POST['submit'])){
       <strong>Successfully Data saved!</strong></div>';
     }
   }
-
-
 }
 
 
