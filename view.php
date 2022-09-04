@@ -10,7 +10,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <h2 class="text-center pt-4">All Users</h2>
+      <h2 class="text-center pt-4">User List</h2>
       <table class="table table-striped">
         <thead>
           <tr>
