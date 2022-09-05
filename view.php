@@ -1,3 +1,26 @@
+<?php
+ //DB Server Information
+ $servername = "localhost";
+ $username = "root";
+ $password = "";
+ $db = "ak48";
+
+ //DB Connection
+ $conn = mysqli_connect($servername, $username, $password, $db);
+
+ if(!$conn){
+   die("Sorry Database is not connected".mysqli_connect_error());
+ }else{
+  echo 'connected<br>';
+ }
+
+ $sql = "SELECT * FROM `user`";
+ $result = mysqli_query($conn, $sql);
+
+$numOfRow = mysqli_num_rows($result);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,24 +44,20 @@
           </tr>
         </thead>
         <tbody>
+<?php 
+while($row = mysqli_fetch_assoc($result)){?>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row"><?php echo $row['ID'] ?></th>
+            <td><?php echo $row['Name'] ? $row['Name'] : 'N/A' ?></td>
+            <td><?php echo $row['Email'] ? $row['Email'] : 'N/A' ?></td>
+            <td><?php echo $row['Dest'] ? $row['Dest'] : 'N/A' ?></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+
+<?php }
+
+
+?>
+
         </tbody>
       </table>
     </div>
