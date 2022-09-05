@@ -44,19 +44,22 @@ $numOfRow = mysqli_num_rows($result);
           </tr>
         </thead>
         <tbody>
-<?php 
-while($row = mysqli_fetch_assoc($result)){?>
-          <tr>
-            <th scope="row"><?php echo $row['ID'] ?></th>
-            <td><?php echo $row['Name'] ? $row['Name'] : 'N/A' ?></td>
-            <td><?php echo $row['Email'] ? $row['Email'] : 'N/A' ?></td>
-            <td><?php echo $row['Dest'] ? $row['Dest'] : 'N/A' ?></td>
-          </tr>
+        <?php 
+        if($numOfRow > 0){
+          while($row = mysqli_fetch_assoc($result)){?>
+            <tr>
+              <th scope="row"><?php echo $row['ID'] ?></th>
+              <td><?php echo $row['Name'] ? $row['Name'] : 'N/A' ?></td>
+              <td><?php echo $row['Email'] ? $row['Email'] : 'N/A' ?></td>
+              <td><?php echo $row['Dest'] ? $row['Dest'] : 'N/A' ?></td>
+            </tr>
 
-<?php }
+        <?php }
+        }
 
 
-?>
+
+        ?>
 
         </tbody>
       </table>
