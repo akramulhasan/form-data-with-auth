@@ -46,15 +46,16 @@ $numOfRow = mysqli_num_rows($result);
         <tbody>
         <?php 
         if($numOfRow > 0){
+          $sl = 1;
           while($row = mysqli_fetch_assoc($result)){?>
             <tr>
-              <th scope="row"><?php echo $row['ID'] ?></th>
+              <th scope="row"><?php echo $sl; ?></th>
               <td><?php echo $row['Name'] ? $row['Name'] : 'N/A' ?></td>
               <td><?php echo $row['Email'] ? $row['Email'] : 'N/A' ?></td>
               <td><?php echo $row['Dest'] ? $row['Dest'] : 'N/A' ?></td>
             </tr>
 
-        <?php }
+        <?php $sl++; }
         }
 
 
